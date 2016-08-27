@@ -1,0 +1,43 @@
+#left-block{
+	float:left;
+	width: 49.9%;
+	height: 200px;
+	border-right:1px solid;
+	border-bottom:1px solid;
+	text-align: center;
+	font-size: 50px;   
+}
+#right-block{
+	float: right;
+	width: 50%;
+	height: 200px;
+	border-bottom:1px solid;
+	text-align: center;
+	font-size: 50px;
+}
+#input-block{
+	width: 100%;
+	height: 200px;
+}
+#input-block-result{
+	width: 70%;
+    height: 50px;
+    margin: 0, auto;
+    margin-top: 10px;
+    margin-left: 200px;
+    font-size: 40px;
+    text-align: center;
+}
+.timer{
+	width: 500px;
+	height: 5px;
+	background-color: #ddd;
+	border-radius: 20px;
+}
+.timer .progress{
+	height: 5px;
+	background-color: #0f0;
+	width: 0px;
+	border-radius: 20px;
+}
+
