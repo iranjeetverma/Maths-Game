@@ -1,43 +1,360 @@
-#left-block{
-	float:left;
-	width: 49.9%;
-	height: 200px;
-	border-right:1px solid;
-	border-bottom:1px solid;
-	text-align: center;
-	font-size: 50px;   
+html {
+    background: white;
+    background: radial-gradient(circle, #fff 30%, #99d1eb);
+    background-size: cover;
 }
-#right-block{
-	float: right;
-	width: 50%;
-	height: 200px;
-	border-bottom:1px solid;
-	text-align: center;
-	font-size: 50px;
+body{
+	margin: 0;
+	padding: 0;
+	font-family: cursive;
+    box-sizing: border-box;
+    text-align:center;
 }
-#input-block{
+
+*{
+	outline: none;
+}
+#container{
 	width: 100%;
-	height: 200px;
+    height: 250px;
+    margin-top: 100px;
 }
-#input-block-result{
-	width: 70%;
+#input-number{
+	width: 230px;
     height: 50px;
-    margin: 0, auto;
-    margin-top: 10px;
-    margin-left: 200px;
-    font-size: 40px;
-    text-align: center;
+}
+#score-container{
+	width: 50%;
+    height: 50px;
+    margin-left:25%;
+    margin-right: 25%;
+    margin-top:10px; 
+}
+#points{    
+	width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    height: 40px;
+    font-size: 25px;
+    color: #1976d2;
 }
 .timer{
-	width: 500px;
-	height: 5px;
-	background-color: #ddd;
-	border-radius: 20px;
+	width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    height: 5px;
+    background-color: #ddd;
+    border-radius: 20px;
 }
 .timer .progress{
 	height: 5px;
-	background-color: #0f0;
-	width: 0px;
+	background-color: #4caf50;
 	border-radius: 20px;
 }
+#functional-container{
+	width: 50%;
+    height: 50px;
+    margin-top: 50px;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+#left-block{
+	float:left;
+	width: 40%;
+	height: 50px;
+	text-align: right;
+	font-size: 40px;
+	color: #4caf50;
+	font-weight: bolder;   
+}
+#op-block{
+	float:left;
+	width: 20%;
+	height: 50px;
+	text-align: center;
+	font-size: 40px;
+	color: #e53935;
+	font-weight: bolder;     
+}
+#right-block{
+	float: left;
+	width: 40%;
+	height: 50px;
+	text-align: left;
+	font-size: 40px;
+	color: #1976d2; 
+	font-weight: bolder; 
+}
+#equal-block{
+	float:left;
+	width: 10%;
+	text-align: center;
+	font-size: 50px;
+	color: #f57c00; 
+	font-weight: bolder; 
+}
+#input-block{
+	float: left;
+	width: 60%;
+	height: 50px;
+	margin-left: 20%;
+	margin-right:20%; 
+	
+}
+.answer-option{
+	float: left;
+	border: 1px solid;
+	border-radius:50%; 
+	width: 25%;
+	font-size: 25px;
+	margin-right: 3%;
+	margin-left: 4%;
+	margin-top:4px; 
+	height: 40px;
+	text-align: center;
+	vertical-align: middle;
+}
+.a{
+	color: hsl(136, 53%, 43%);
+}
+.b{
+	color: hsl(5, 82%, 56%);
+}
+.c{
+	color:  hsl(218, 88%, 61%);
+}
+.correct-answer{
+	background-color: hsl(136, 53%, 43%);
+	color: #fff; 
 
+}
+.wrong-answer{
+	background-color:red;
+	color: #fff; 
+}
+.button{
+	background: url("small-cloud.png") no-repeat;
+	border: none;
+	height: 50px;
+	top: -30px;
+	width: 50px;
+	font-family: cursive;
+	font-size: 20px;
+	text-align: center;
+	padding-bottom: 15px;
+}
+.buttonA{
+	-webkit-animation: bounce 2s infinite alternate;
+    animation: bounce 2s infinite alternate;
+}
+.buttonB{
+	-webkit-animation: bounce 2.3s infinite alternate;
+    animation: bounce 2.3s infinite alternate;
+}
+.buttonC{
+	-webkit-animation: bounce 2.5s infinite alternate;
+    animation: bounce 2.5s infinite alternate;
+}
+@keyframes bounce {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-5px);
+  }
+}
+
+
+.cloud {
+  height: 50px;
+  z-index: 25;
+  background-color:#fff; 
+}
+.cloud__back {
+  background: url("cloud1.png") repeat-x transparent;
+  height: 200px;
+  position: absolute;
+  width: 100%;
+  top: 2px;
+  z-index: 18;
+}
+
+.cloud__front {
+  background: url("cloud2.png") repeat-x transparent;
+  height: 200px;
+  position: absolute;
+  width: 100%;
+  top: -12px;
+  z-index: 19;
+}
+
+
+.cloud__main {
+  background: url('main-cloud3.png') repeat-x transparent;
+  height: 220px;
+  position: absolute;
+  top: -5px;
+  width: 100%;
+  z-index: 16;
+}
+
+.cloud .x1 {
+  -webkit-animation: cloudmove 3s infinite linear;
+  animation: cloudmove 3s infinite linear;
+}
+
+.cloud .x2 {
+  -webkit-animation: cloudmove 3s infinite linear;
+  animation: cloudmove 3s infinite linear;
+}
+
+.cloud .x3 {
+  -webkit-animation: cloudmove 3s infinite linear;
+  animation: cloudmove 3s infinite linear;
+}
+
+@-webkit-keyframes cloudmove {
+
+  0% {
+    background-position: -105px 10px;
+  }
+
+
+  100% {
+    background-position: -210px 10px;
+  }
+}
+.last-hill {
+  height: 170px;
+  position: absolute;
+  width: 80%;
+  margin-right: 20%;
+}
+.house {
+    background: url("house.png") no-repeat transparent;
+    height: 170px;
+    position: absolute;
+    width: 100%;
+    z-index: 14;
+}
+
+.balloon {
+  background: url("balloon.png") no-repeat transparent;
+  height: 69px;
+  position: relative;
+  top: -130px;
+  width: 49px;
+  z-index: 300;
+  -webkit-animation: balloonmove 15s infinite linear;
+  animation: balloonmove 15s infinite linear;
+}
+
+@-webkit-keyframes balloonmove {
+  0% {
+    top: -140px;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+
+  15% {
+    top: -180px;
+    -webkit-transform: rotate(-15deg);
+    transform: rotate(-15deg);
+  }
+  30% {
+    top: -220px;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  45% {
+    top: -260px;
+    -webkit-transform: rotate(15deg);
+    transform: rotate(15deg);
+  }
+  60% {
+    top: -220px;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  75% {
+    top: -180px;
+    -webkit-transform: rotate(-15deg);
+    transform: rotate(-15deg);
+  }
+  90% {
+    top: -160px;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    top: -140px;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+
+.larg-bubble {
+  background: url("small-cloud.png") no-repeat transparent;
+  background-size: 100% 100%;
+  height: 27px;
+  position: absolute;
+  width: 36px;
+  -webkit-animation: bubblemove 5s infinite linear;
+  animation: bubblemove 5s infinite linear;
+}
+.small-bubble {
+  background: url("small-cloud.png") no-repeat transparent;
+  background-size: 100% 100%;
+  height: 27px;
+  position: absolute;
+  width: 36px;
+  -webkit-animation: bubblemove 5s infinite linear -2s;
+  animation: bubblemove 5s infinite linear -2s;
+}
+
+@-webkit-keyframes bubblemove {
+  0% {
+    height: 18px;
+    top: 0px;
+    width: 25px;
+  }
+  30% {
+    top: -10px;
+  }
+  100% {
+    height: 25px;
+    top: -40px;
+    width: 35px;
+    right: 40%;
+  }
+}
+
+@keyframes bubblemove {
+  0% {
+    top: 0px;
+    height: 15px;
+    width: 25px;
+    right: 40%;
+  }
+  30% {
+    top: -10px;
+    height: 10px;
+    width: 20px;
+  }
+  60%{
+  	height: 10px;
+    width: 20px;
+  }
+  90%{
+  	height: 5px;
+    width: 15px;
+  }
+  100% {
+    height: 0px;
+    top: -40px;
+    width: 35px;
+    right: 40%;
+  }
+}
