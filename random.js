@@ -167,6 +167,7 @@ function startGame(){
 	changeQuestion();	
 	startCountDown();
 }
+
 var date = new Date();
 date=new Date(date).toUTCString();
 date=date.split(' ').slice(0, 4).join(' ')
