@@ -6,28 +6,52 @@ var second_option=0;
 var correctAnwers = 0;
 var total = 0;
 var countDown;
-var timer = 5000;
-var difficulty = 15;
-var multiplication_difficulty = 2;
+var timer = 7000;
 var progress;
 var start;
+
+var DIFFICULTY = {
+	EASY: 15,
+	MEDIUM : 30,
+	HARD : 60
+}
+var difficulty = DIFFICULTY.EASY;
+
 var OPERATION = {
-		ADD: "addition",
-		SUBS: "substraction",
-		MULTI: "multiplication"
+		ADD: "ADDITION",
+		SUBS: "SUBSTRACTION",
+		MULTI: "MULTIPLICATION",
+		DIVIDE: "DIVISION"
 	}
 var operation = OPERATION.ADD;
 
- $(document).ready(function () {
-    $(".answer-option").click(function (e) {
-		clearInterval(countDown);
-		startGame();
-    });
-});
 
-$(".button").click(function(e){
-	operation = $(e.target).val();
-	clearInterval(countDown);
+$(".page").hide();
+$(".main-screen").show();
+$(".page [data-page]").click(function(e){
+
+	var target = $(e.target)
+	$(".page").hide();
+	if(target.attr('data-action') === "back"){
+		$("."+target.attr('data-page')).show().addClass('bounceInRight');
+	}
+	else{
+		$("."+target.attr('data-page')).show().addClass('bounceInLeft');
+	}
+	if(target.attr('data-page') === "level-screen"){
+		operation = $(target).val()
+	}
+	if(target.attr('data-page') === "game-container"){
+		setTimeout(startGame, 250);
+	}
+})
+
+$(".answer-option").click(function(){
+	 var ans = $(this).text();
+	 var answer = getAnswer();
+		if (ans == answer) {
+			correctAnwers++;
+		}
 	startGame();
 })
 
@@ -54,30 +78,43 @@ function showProgress(){
 	},10)
 }
 
+function changeOperation(){
+	var displayOp = "+";
+	switch(operation){
+		case "SUBSTRACTION" : 
+			displayOp = "-";
+			leftNumber = Math.max(leftNumber, rightNumber)
+			rightNumber = Math.min( leftNumber , rightNumber)	
+			break;
+		case "MULTIPLICATION" :
+			displayOp = "x";
+			break;
+		case "DIVISION" :
+			displayOp = "/";
+			leftNumber = leftNumber*rightNumber
+			break;
+	}
+	return displayOp;
+}
+
 var changeQuestion = function(){
 	leftNumber = getRandomNumber()
 	rightNumber = getRandomNumber()
-	var displayOp = "+"
-	switch(operation){
-		case "substraction" : 
-			displayOp = "-";
-			leftNumber = Math.max(leftNumber, rightNumber)
-			rightNumber = Math.min( rightNumber , leftNumber)	
-			break;
-		case "multiplication" :
-		displayOp = "x";
-		leftNumber = Math.floor(getRandomNumber()/multiplication_difficulty);
-		rightNumber = Math.floor(getRandomNumber()/multiplication_difficulty);
-		break;
+	var displayOp = changeOperation();
+	while(leftNumber == rightNumber){
+		rightNumber = getRandomNumber()
 	}
+
+	
 	$('#left-block').html(leftNumber);
 	$('#op-block').html(displayOp);
 	$('#right-block').html(rightNumber);
+
 	updateScore();
 	clearInterval(progress)
 	showProgress();
 	displayAnswers();
-	total ++;
+	total++;
 }
 
 var displayAnswers = function(){
@@ -92,20 +129,29 @@ function updateScore(){
 	$("#points").html(correctAnwers+" / "+total);
 }
 
-function getAnswerOptions (){
+function getAnswer(){
 	var answer = 0;
 	switch(operation){
-		case "addition" : 
+		case "ADDITION" : 
 			answer = leftNumber+rightNumber;
 			break;
-		case "substraction" : 
+		case "SUBSTRACTION" : 
 			answer = leftNumber-rightNumber;
 			break;
-		case "multiplication" :
-		answer = leftNumber*rightNumber;
-		break;
+		case "MULTIPLICATION" :
+			answer = leftNumber*rightNumber;
+			break;
+		case "DIVISION" :
+			answer = Math.floor(leftNumber/rightNumber);
+			break;
 	}
-	var options =[answer, (answer + getRandomNumber()), Math.abs(answer - getRandomNumber())];
+	return answer;
+}
+
+function getAnswerOptions (){
+	var answer = getAnswer();
+	var answerVariation =  getRandomNumber()
+	var options =[answer, (answer + answerVariation), Math.abs(answer - answerVariation)];
 	var pos = getRandomNumber()%3;
 	options.splice(pos,0,answer);
 	options.shift();
@@ -115,8 +161,14 @@ function getAnswerOptions (){
 		"third_option": options[2]
 	}
 }
+
 function startGame(){
+	clearInterval(countDown);
 	changeQuestion();	
 	startCountDown();
 }
-startGame();
+var date = new Date();
+date=new Date(date).toUTCString();
+date=date.split(' ').slice(0, 4).join(' ')
+$(".date").html(date);
+

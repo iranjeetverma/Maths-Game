@@ -2,50 +2,83 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="random.css">
+	<link rel="stylesheet" type="text/css" href="animate.min.css">
 	<title></title>
 	
 </head>
 <body>
-	
-	<!-- hfjsdhfdsffkjdsf;l -->
-	<div class="main-container">
-		<div class="cloud">
-	    	<div class="x3 cloud__front">
-	    		<div style="margin-top:50px;">
-		    		<input class="button buttonA" type="button" value="addition" id="b1">
-					<input class="button buttonB" type="button" value="substraction" id="b2">
-					<input class="button buttonC" type="button" value="multiplication" id="b3">
-				</div>
-	    	</div>
-	    	<div class="x2 cloud__back"></div>
-	    	<div class="x1 cloud__main"></div>          
-	    </div>
+	<!-- Start Screen-->
+	<div class="main-screen page bounceInLeft animated">
+		<img src="img/cover.jpg">
+		<div class="statistics date"></div>
+		<div class="statistics" id="total"></div>
+		<div class="statistics">Correct Answer</div>
+		<div class="statistics">Wrong Answer</div>
+		<div class=" bounceInLeft animated">
+			<input type="button" value="START" class="start start-button" data-page="menu-screen">
+		</div>
 	</div>
-    <div id="container">
-		<div id="score-container">
+
+	<!-- Menu Screen-->
+	<div class="menu-screen page animated">
+		<div class="header">
+			<a data-action="back" data-page="main-screen">Back</a>
+		</div>
+		<div class="date gray-border"></div>
+		<div class="content-title green-border">
+			<input class="button" type="button" value="ADDITION" data-page="level-screen">
+		</div>
+		<div class="content-title red-border">
+			<input class="button" type="button" value="SUBSTRACTION" data-page="level-screen">
+		</div>
+		<div class="content-title blue-border">
+			<input class="button" type="button" value="MULTIPLICATION" data-page="level-screen">
+		</div>
+		<div class="content-title orange-border">
+			<input class="button" type="button" value="DIVISION" data-page="level-screen">
+		</div>
+	</div>
+
+	<!-- Level Screen-->
+	<div class="level-screen page animated">
+		<div class="header">
+			<a data-action="back" data-page="menu-screen">Back</a>
+		</div>
+		<div class="date gray-border"></div>
+		<div class="content-title green-border">
+			<input class="button" type="button" value="EASY" data-page="game-container">
+		</div>
+		<div class="content-title red-border">
+			<input class="button" type="button" value="MEDIUM" data-page="game-container">
+		</div>
+		<div class="content-title blue-border">
+			<input class="button" type="button" value="HARD" data-page="game-container">
+		</div>
+	</div>
+
+	<!-- Game Screen-->
+	<div class="game-container page animated"> 
+		<div class="header">
+			<a data-action="back" data-page="level-screen">Back</a>
+		</div> 	
+		<div class="score-container">
 			<div id="points"></div>
 			<div class="timer">
 				<div class="progress"></div>
 			</div>
 		</div>
-		<div id="functional-container">
-			<div id="left-block"></div>
-			<div id="op-block">+</div>
-			<div id="right-block"></div>
+		<div class="functional-container">
+			<span id="left-block"></span>
+			<span id="op-block">+</span>
+			<span id="right-block"></span>
 		</div>
-		<div id="input-block">
-			<div class="answer-option a" id="first-option"></div>
-			<div class="answer-option b" id="second-option"></div>
-			<div class="answer-option c" id="third-option"></div>
+		<div class="input-block">
+			<span class="answer-option a" id="first-option"></span>
+			<span class="answer-option b" id="second-option"></span>
+			<span class="answer-option c" id="third-option"></span>
 		</div>
 	</div>
-	<div class="last-hill">
-    	<div class="house">
-    		<div class="larg-bubble"></div>
-	        <div class="small-bubble"></div>
-    	</div>
-        <div class="balloon"></div>
-    </div>     
+
 	<script type="text/javascript" src="jquery.js"></script>
 	<script type="text/javascript" src="random.js"></script>
 </body>
