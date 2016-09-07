@@ -7,6 +7,7 @@ body{
 	font-family: 'arial';
   box-sizing: border-box;
   text-align:center;
+  overflow-x: hidden;
 }
 
 *{
@@ -32,49 +33,45 @@ img{
   height: 50px;
 }
 .score-container{
-  width: 50%;
-  height: 50px;
-  margin-left:25%;
-  margin-right: 25%;
+  height: 60px;
 }
-#points{    
-  width: 50%;
-  margin-left: 25%;
-  margin-right: 25%;
-  height: 40px;
-  font-size: 25px;
-  color: #1976d2;
+.score{
+  margin-top: 10px;
+  font-size: 15px;
+  color: #aaa;
 }
 .timer{
-	width: 50%;
-  margin-left: 25%;
-  margin-right: 25%;
+  margin-top:20px; 
   height: 5px;
   background-color: #ddd;
   border-radius: 20px;
 }
 .timer .progress{
 	height: 5px;
-	background-color: #4caf50;
+	background-color: #2766af;
 	border-radius: 20px;
 }
 .functional-container{
   height: 50px;
+  margin:20px; 
 }
 #left-block{
-	font-size: 40px;
-	color: #4caf50;
-	font-weight: bolder;   
+  font-size: 40px;
+  color: #2766af;
+  display: inline-block;
+  width: 60px;   
 }
 #op-block{
-	font-size: 40px;
-	color: #e53935;
-	font-weight: bolder;     
+  font-size: 40px;
+  color: #2766af;
+  display: inline-block;
+  width: 60px;   
 }
 #right-block{
-	font-size: 40px;
-	color: #1976d2; 
-	font-weight: bolder; 
+  font-size: 40px;
+  color: #2766af;
+  display: inline-block;
+  width: 60px; 
 }
 #equal-block{
 	float:left;
@@ -85,26 +82,20 @@ img{
 	font-weight: bolder; 
 }
 .input-block{
-	height: 90px;
-  display: flex;
+    height: 200px;
 }
 .answer-option{
-	border: 1px solid;
-	font-size: 25px;
-	margin: 20px; 
-	height: 50px;
-	text-align: center;
-  display: inline-block;
-  flex: .3%
-}
-.a{
-	color: hsl(136, 53%, 43%);
-}
-.b{
-	color: hsl(5, 82%, 56%);
-}
-.c{
-	color:  hsl(218, 88%, 61%);
+    font-size: 35px;
+    margin: 10px;
+    height: 35px;
+    text-align: center;
+    display: inline-block;
+    width: 80px;
+    padding: 15px;
+    font-weight: bolder;
+    color: #fff;
+    background: #4a90e2;
+    border-radius: 10px;
 }
 .correct-answer{
 	background-color: hsl(136, 53%, 43%);
@@ -131,21 +122,32 @@ img{
 }
 .button{
     height: 50px;
-    width: 100%;
-    background-color: #eeeeee;
+    width: 90%;
+    background-color: #4a90e2;
+    border: 1px solid;
+    margin-top: 10px;
+    margin-bottom: 10px;
     outline: none;
     border: none;
-    border-bottom: 1px solid #bbb; 
-    line-height: 50px;
-    color: #474e5e;
+    line-height: 25px;
+    color: #ffffff;
     text-align: left;
     font-size: 15px;
+    text-indent: 20px;
 }
-.button:hover {
+.button:hover .label{
+  box-shadow: none;
+}
+.button:hover, .button:hover *{
     cursor: pointer;
+    background-color: #add3ff;    
+}
+.button:active{
+    cursor: pointer;
+    background-color: #6cadf9;
+    color: white;
 }
 .content-title{
-  padding: 10px;
   padding-bottom:0px; 
   background-color: #eee;
   border-left: 5px solid;
@@ -158,6 +160,15 @@ img{
   line-height: 50px;
   padding-left: 10px;
   border-bottom:.5px solid  #ddd; 
+}
+.statistics-div{
+  border-bottom: 1px solid #bbb; 
+  text-indent: 10px;
+}
+.statistics-span{
+  display: inline-block;
+  width: 100%;
+  text-align: left;
 }
 .date{
   color: #aaa;
@@ -179,4 +190,49 @@ img{
   height: 40px;
   text-align: left;
   padding-top: 15px;
+}
+.icon-blue{
+  color: #2582ef;
+}
+.icon-red{
+  color: #ff6679;
+}
+.icon-green{
+  color:  #2bb3a2;
+}
+.span{
+    display: inline-block;
+    float: right;
+    margin-right: 20px;
+}
+.back-button{
+  margin-left: 10px;
+  margin-top: 9px;
+}
+.back-button:hover{
+  cursor: pointer;
+}
+.home-button{
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.home-button:hover{
+  cursor: pointer;
+}
+.total-questions{
+  float: right;
+  margin-right: 17px;
+  font-size: 15px;
+  color: #aaa;
+}
+.label{
+    margin-right: 5px;
+    float: right;
+    font-size: 15px;
+    color: #fff;
+    background: #3068ab;
+    padding-right: 5px;
+    border-radius: 2px;
+    box-shadow: inset 0px 2px 2px 2px #1a5190;;
 }

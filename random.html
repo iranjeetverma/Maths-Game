@@ -3,79 +3,125 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="random.css">
 	<link rel="stylesheet" type="text/css" href="animate.min.css">
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 	<title></title>
-	
 </head>
 <body>
 	<!-- Start Screen-->
+
 	<div class="main-screen page bounceInLeft animated">
 		<img src="img/cover.jpg">
 		<div class="statistics date"></div>
-		<div class="statistics" id="total"></div>
-		<div class="statistics">Correct Answer</div>
-		<div class="statistics">Wrong Answer</div>
+		<div class="statistics" >
+			<i class="fa fa-question fa-lg icon-blue" aria-hidden="true"></i>
+			<label>Total Questions</label>
+			<span class="span" id="total"></span>
+		</div>
+		<div class="statistics">
+			<i class="fa fa-check icon-green" aria-hidden="true"></i>
+			<label>Correct Answers</label>
+			<span class="span" id="correct"></span>
+		</div>
+		<div class="statistics">
+			<i class="fa fa-times icon-red" aria-hidden="true"></i>
+			<label>Wrong Answers</label>
+			<span class="span" id="wrong"></span>
+		</div>
 		<div class=" bounceInLeft animated">
 			<input type="button" value="START" class="start start-button" data-page="menu-screen">
 		</div>
 	</div>
 
 	<!-- Menu Screen-->
+
 	<div class="menu-screen page animated">
 		<div class="header">
-			<a data-action="back" data-page="main-screen">Back</a>
+			<i class="fa fa-arrow-circle-left fa-2x back-button" aria-hidden="true" 
+			data-action="back" data-page="main-screen"></i>
+			<i class="fa fa-home fa-2x home-button" aria-hidden="true" 
+			data-action="back" data-page="main-screen"></i>
 		</div>
 		<div class="date gray-border"></div>
+		<div  class="total-questions">TotalQuestion</div>
 		<div class="content-title green-border">
-			<input class="button" type="button" value="ADDITION" data-page="level-screen">
+			<button class="button" type="button" value="ADDITION" data-page="level-screen" >ADDITION
+			<div class="label" id="total-addition"></div>
+			</button>
 		</div>
 		<div class="content-title red-border">
-			<input class="button" type="button" value="SUBSTRACTION" data-page="level-screen">
+			<button class="button" type="button" value="SUBSTRACTION" data-page="level-screen">SUBSTRACTION
+				<div class="label" id="total-substraction"></div>
+			</button>
 		</div>
 		<div class="content-title blue-border">
-			<input class="button" type="button" value="MULTIPLICATION" data-page="level-screen">
+			<button class="button" type="button" value="MULTIPLICATION" data-page="level-screen">MULTIPLICATION
+				<div class="label" id="total-multiplication"></div>
+			</button>
 		</div>
 		<div class="content-title orange-border">
-			<input class="button" type="button" value="DIVISION" data-page="level-screen">
+			<button class="button" type="button" value="DIVISION" data-page="level-screen">
+			DIVISION
+				<div class="label" id="total-division"></div>
+			</button>
 		</div>
 	</div>
 
 	<!-- Level Screen-->
+
 	<div class="level-screen page animated">
 		<div class="header">
-			<a data-action="back" data-page="menu-screen">Back</a>
+			<i class="fa fa-arrow-circle-left fa-2x back-button" aria-hidden="true" 
+			data-action="back" data-page="menu-screen"></i>
+			<i class="fa fa-home fa-2x home-button" aria-hidden="true" 
+			data-action="back" data-page="main-screen"></i>
 		</div>
 		<div class="date gray-border"></div>
+		<div  class="total-questions">TotalQuestion</div>
 		<div class="content-title green-border">
-			<input class="button" type="button" value="EASY" data-page="game-container">
+			<button class="button" type="button" value="EASY" data-page="game-container">
+				EASY
+				<div class="label" value="EASY">234</div>
+			</button>
 		</div>
 		<div class="content-title red-border">
-			<input class="button" type="button" value="MEDIUM" data-page="game-container">
+			<button class="button" type="button" value="MEDIUM" data-page="game-container">
+				MEDIUM
+				<div class="label"  value="MEDIUM">3</div>
+			</button>
 		</div>
 		<div class="content-title blue-border">
-			<input class="button" type="button" value="HARD" data-page="game-container">
+			<button class="button" type="button" value="HARD" data-page="game-container">
+				HARD
+				<div class="label" value="HARD">12</div>
+			</button>
 		</div>
 	</div>
 
 	<!-- Game Screen-->
+
 	<div class="game-container page animated"> 
 		<div class="header">
-			<a data-action="back" data-page="level-screen">Back</a>
-		</div> 	
-		<div class="score-container">
-			<div id="points"></div>
+			<i class="fa fa-arrow-circle-left fa-2x back-button" aria-hidden="true" 
+			data-action="back" data-page="level-screen"></i>
+			<i class="fa fa-home fa-2x home-button" aria-hidden="true" 
+			data-action="back" data-page="main-screen"></i>
+		</div>
+			<div class="score">Score</div>
+			<div id="points" class="score"></div>
+			<div id="total-qus" class="score"></div> 	
 			<div class="timer">
 				<div class="progress"></div>
-			</div>
-		</div>
+			</div>		
 		<div class="functional-container">
 			<span id="left-block"></span>
 			<span id="op-block">+</span>
 			<span id="right-block"></span>
 		</div>
 		<div class="input-block">
-			<span class="answer-option a" id="first-option"></span>
-			<span class="answer-option b" id="second-option"></span>
-			<span class="answer-option c" id="third-option"></span>
+			<span class="answer-option " id="first-option"></span>
+			<span class="answer-option " id="second-option"></span>
+			<span class="answer-option " id="third-option"></span>
+			<span class="answer-option " id="forth-option"></span>
 		</div>
 	</div>
 
